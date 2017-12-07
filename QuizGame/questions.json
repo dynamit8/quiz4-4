@@ -1,0 +1,179 @@
+Question = {
+    "Question1": {
+        "text": "When to use REACT and when NOT to use REACT?",
+        "choice1": {
+            "text":"choice01",
+            "point":10
+        },
+        "choice2": {
+            "text":"choice02",
+            "point":20
+        },
+        "choice3": {
+            "text":"choice03",
+            "point":30
+        },
+        "choice4": {
+            "text":"choice04",
+            "point":40
+        },
+        "choice5": {
+            "text":"choice05",
+            "point":50
+        },
+        "choice6": {
+            "text":"choice06",
+            "point":60
+        },
+        "choice7": {
+            "text":"choice07",
+            "point":70
+        },
+        "choice8": {
+            "text":"choice08",
+            "point":80
+        }
+    },
+    "Question2": {
+        "text": "question2",
+        "choice1": {
+            "text":"choice01",
+            "point":1
+        },
+        "choice2": {
+            "text":"choice02",
+            "point":2
+        },
+        "choice3": {
+            "text":"choice03",
+            "point":3
+        },
+        "choice4": {
+            "text":"choice04",
+            "point":4
+        },
+        "choice5": {
+            "text":"choice05",
+            "point":5
+        },
+        "choice6": {
+            "text":"choice06",
+            "point":6
+        },
+        "choice7": {
+            "text":"choice07",
+            "point":7
+        },
+        "choice8": {
+            "text":"choice08",
+            "point":8
+        }
+    },
+    "Question3": {
+        "text": "question3",
+        "choice1": {
+            "text":"choice01",
+            "point":1
+        },
+        "choice2": {
+            "text":"choice02",
+            "point":2
+        },
+        "choice3": {
+            "text":"choice03",
+            "point":3
+        },
+        "choice4": {
+            "text":"choice04",
+            "point":4
+        },
+        "choice5": {
+            "text":"choice05",
+            "point":5
+        },
+        "choice6": {
+            "text":"choice06",
+            "point":6
+        },
+        "choice7": {
+            "text":"choice07",
+            "point":7
+        },
+        "choice8": {
+            "text":"choice08",
+            "point":8
+        }
+    },
+    "Question4": {
+        "text": "question4",
+        "choice1": {
+            "text":"choice01",
+            "point":1
+        },
+        "choice2": {
+            "text":"choice02",
+            "point":2
+        },
+        "choice3": {
+            "text":"choice03",
+            "point":3
+        },
+        "choice4": {
+            "text":"choice04",
+            "point":4
+        },
+        "choice5": {
+            "text":"choice05",
+            "point":5
+        },
+        "choice6": {
+            "text":"choice06",
+            "point":6
+        },
+        "choice7": {
+            "text":"choice07",
+            "point":7
+        },
+        "choice8": {
+            "text":"choice08",
+            "point":8
+        }
+    },
+    "Question5": {
+        "text": "question5",
+        "choice1": {
+            "text":"choice01",
+            "point":1
+        },
+        "choice2": {
+            "text":"choice02",
+            "point":2
+        },
+        "choice3": {
+            "text":"choice03",
+            "point":3
+        },
+        "choice4": {
+            "text":"choice04",
+            "point":4
+        },
+        "choice5": {
+            "text":"choice05",
+            "point":5
+        },
+        "choice6": {
+            "text":"choice06",
+            "point":6
+        },
+        "choice7": {
+            "text":"choice07",
+            "point":7
+        },
+        "choice8": {
+            "text":"choice08",
+            "point":8
+        }
+    }
+}//End Question Object
+
+

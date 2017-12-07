@@ -1,0 +1,28 @@
+.mainChoicePoint{
+    background-color: #868e96;
+    border-radius: .25rem !important;
+    margin-left: 1rem !important;
+    padding: .25rem !important;
+}
+.correct{
+    background-color:#28a745;
+    border-color: #28a745;
+}
+.correct .mainChoicePoint{
+    background-color:#f8f9fa;
+    color:#343a40;
+}
+.mb-100{
+    margin-bottom: 100px;
+}
+.console-zone > div{
+    border-right:1px #343a40 solid;
+}
+.choice-zone .row{
+    margin-bottom:5px;
+}
+
+#mainQuestion{
+    font-size: 30px;
+    font-weight: bold;
+}

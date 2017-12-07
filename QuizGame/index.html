@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<header>
+<title>Quiz</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/custom.css">
+<!-- <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css"> -->
+</header>
+<body>
+    <div class="wrapper pt-5 pl-5 pr-5">
+        <div id="wrongEffect"></div>
+        <!-- Main -->
+        <div class="container">
+            <div class="row question text-center">
+                <div class="col">
+                    <div id="mainQuestion" class="pb-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="container bg-light main mb-100">
+            <div class="row pt-2">
+                <div class="col">
+                    <!-- Points -->
+                    <div class="card text-center p-3 mt-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Team A</h4>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">POINTS</li>
+                            <li id="teamAPoint" class="list-group-item">0</li>
+                            <li class="list-group-item">WRONG</li>
+                            <li id="wrongA" class="list-group-item">0</li>
+                        </ul>
+                    </div>
+                    <!-- Points -->
+                </div>
+                <div class="col-6 text-center">
+                    <div class="row mb-1">
+                        <div class="col-6">
+                            <button id="mainChoice1" class="btn btn-lg btn-primary w-100 mb-5">
+                                <span id="mainChoice1Text">Answer1</span><span id="mainChoice1Point" class="mainChoicePoint d-none">55</span>
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button id="mainChoice2" class="btn btn-lg btn-primary w-100 mb-5">
+                                <span id="mainChoice2Text">Answer2</span><span id="mainChoice2Point" class="mainChoicePoint d-none">55</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-6">
+                            <button id="mainChoice3" class="btn btn-lg btn-primary w-100 mb-5">
+                                <span id="mainChoice3Text">Answer3</span><span id="mainChoice3Point" class="mainChoicePoint d-none">55</span>
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button id="mainChoice4" class="btn btn-lg btn-primary w-100 mb-5">
+                                <span id="mainChoice4Text">Answer4</span><span id="mainChoice4Point" class="mainChoicePoint d-none">55</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-6">
+                            <button id="mainChoice5" class="btn btn-lg btn-primary w-100 mb-5">
+                                <span id="mainChoice5Text">Answer5</span><span id="mainChoice5Point" class="mainChoicePoint d-none">55</span>
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button id="mainChoice6" class="btn btn-lg btn-primary w-100 mb-5">
+                                <span id="mainChoice6Text">Answer6</span><span id="mainChoice6Point" class="mainChoicePoint d-none">55</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row mb-1">
+                        <div class="col-6">
+                            <button id="mainChoice7" class="btn btn-lg btn-primary w-100 mb-3">
+                                <span id="mainChoice7Text">Answer7</span><span id="mainChoice7Point" class="mainChoicePoint d-none">55</span>
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button id="mainChoice8" class="btn btn-lg btn-primary w-100 mb-3">
+                                <span id="mainChoice8Text">Answer8</span><span id="mainChoice8Point" class="mainChoicePoint d-none">55</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-right">
+                    <!-- Points -->
+                    <div class="card text-center p-3 mt-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Team B</h4>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">POINTS</li>
+                            <li id="teamBPoint" class="list-group-item">0</li>
+                            <li class="list-group-item">WRONG</li>
+                            <li id="wrongB" class="list-group-item">0</li>
+                        </ul>
+                    </div>
+                    <!-- Points -->
+                </div>
+            </div>          
+            <audio id="correctSound" src="Bell3.mp3" preload="auto"></audio>
+            <audio id="wrongSound" src="Wrong.mp3" preload="auto"></audio>
+        </div>
+        <!-- End Main -->
+        <hr />
+        <!-- Console -->
+        <div class="container">
+            <div class="status-zone card p-1 bg-dark text-light mb-2 d-none">
+                <h4>Status</h4>
+                <div class="row">
+                    <div class="col">คำถามข้อที่<span id="consoleQuestionIndex"></span></div>
+                    <div class="col-5"><span id="consoleQuestionText"></span></div>
+                    <div class="col">คะแนนทีม A: 50</div>
+                    <div class="col">คะแนนทีม B: 25</div>
+                </div>
+            </div>
+            <div class="row console-zone">
+                <div class="col toggle-zone">
+                    <h6>1. เปลี่ยนทีมให้คะแนน</h6>
+                    ลงคะแนนให้ทีม <button id="consoleGivePointToTeam" class="btn btn-light"></button>
+                </div>
+                <div class="col-8 choice-zone">
+                    <h6>2. ตอบคำถาม(เฉลย)</h6>
+                    <div class="row">
+                        <div class="col"><button id="consoleChoice1Button" class="btn btn-sm btn-success w-100">ตอบ 1:<span id="consoleChoice1"></span></button></div>
+                        <div class="col"><button id="consoleChoice2Button" class="btn btn-sm btn-success w-100">ตอบ 2:<span id="consoleChoice2"></span></button></div>
+                        <div class="col"><button id="consoleChoice3Button" class="btn btn-sm btn-success w-100">ตอบ 3:<span id="consoleChoice3"></span></button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button id="consoleChoice4Button" class="btn btn-sm btn-success w-100">ตอบ 4:<span id="consoleChoice4"></span></button></div>
+                        <div class="col"><button id="consoleChoice5Button" class="btn btn-sm btn-success w-100">ตอบ 5:<span id="consoleChoice5"></span></button></div>
+                        <div class="col"><button id="consoleChoice6Button" class="btn btn-sm btn-success w-100">ตอบ 6:<span id="consoleChoice6"></span></button></div>
+                    </div>
+                    <div class="row">
+                        <div class="col"><button id="consoleChoice7Button" class="btn btn-sm  btn-success w-100">ตอบ 7:<span id="consoleChoice7"></span></button></div>
+                        <div class="col"><button id="consoleChoice8Button" class="btn btn-sm btn-success w-100">ตอบ 8:<span id="consoleChoice8"></span></button></div>
+                        <div class="col"><button id="wrongAnswerButton" class="btn btn-sm btn-danger w-100">ตอบผิด X</button></div>
+                    </div>
+                </div>
+                <div class="col questionControl">
+                    <h6>3. เปลี่ยนคำถาม</h6>
+                    <div class="row">
+                        <div class="col">
+                            <select id="questionNumber" class="custom-select" name="number"></select>
+                            <!-- <div class="col"><button id="previousButton"class="btn btn-secondary w-100"><< ข้อก่อนหน้า</button></div>
+                            <div class="col"><button id="nextButton" class="btn btn-secondary w-100">ข้อถัดไป >></button></div> -->
+                            <input id="chosenQuestion" type="hidden">
+                            <button id="selectQuestionButton"class="btn btn-secondary w-100">เลือก</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Console -->
+    </div>
+<script src="jquery-3.2.1.slim.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script>
+<script type="text/javascript" src="questions.json"></script>
+
+<script type="text/javascript">
+    //=========ในกรณีที่ต้องการเช็คไฟล์ question.json=========//
+    //alert(JSON.stringify(Question));
+    //1. ให้ลบ '//' ที่หน้า alert save แล้ว F5 ที่ browser
+    //2. ถ้าไม่แสดงข้อมูลคำถามคำตอบแสดงว่าไฟล์ question.json เสีย
+    //3. ให้ copy code จาก question.json.bak มาไว้ใน question.json
+    //4. แล้ว เปลี่ยนข้อมูลตามต้องการ
+    
+    
+
+    
+
+    //press answer (console)
+    $(document).ready(function(){
+
+        //initial
+        var questionNum = 1;
+        var givePointToTeam = 'A';
+        var questionIndex = '';
+        //get Question
+        var currentQuestion = Question;
+        var questionsArray = [];
+        var questionChosen = document.getElementById("questionNumber");
+        questionChosen.innerHTML  = '';
+        Object.keys(Question).map(function(key, index){
+            questionsArray.push(Question[key].text);
+            questionChosen.innerHTML += '<option value='+key+'>'+key+'</option>';
+        });
+        //set Question
+        var initial = function(){
+            questionIndex = "Question"+String(questionNum);
+            
+            document.getElementById("mainQuestion").innerHTML = currentQuestion[questionIndex].text;
+            //Console
+            document.getElementById("consoleQuestionText").innerHTML = currentQuestion[questionIndex].text;
+            document.getElementById("consoleQuestionIndex").innerHTML = questionNum;
+            document.getElementById("consoleGivePointToTeam").innerHTML = givePointToTeam;
+
+            //Points
+            $("#teamAPoint").text('0');
+            $("#wrongA").text('0');
+            $("#teamBPoint").text('0');
+            $("#wrongB").text('0');
+
+            for(i = 1; i<=8; i++){
+                document.getElementById("consoleChoice"+i).innerHTML = currentQuestion[questionIndex]["choice"+i].text;
+                document.getElementById("mainChoice"+i+"Text").innerHTML = "Answer"+i;
+                document.getElementById("mainChoice"+i+"Point").innerHTML = currentQuestion[questionIndex]["choice"+i].point;
+                $("#mainChoice"+i).removeClass("correct");
+                $("#mainChoice"+i+"Point").addClass("d-none");
+                $("#consoleChoice"+i+"Button").prop("disabled",false);
+            }
+        }
+        initial(questionIndex);
+        // var test = currentQuestion[questionIndex].text; //get access
+        //====Reveal Answer===//
+        
+        var toggleTeam = function(){
+            if(givePointToTeam == 'A'){
+                givePointToTeam = 'B';
+            }else{
+                givePointToTeam = 'A';
+            }
+            document.getElementById("consoleGivePointToTeam").innerHTML = givePointToTeam;
+        }
+        var revealAnswer = function(stringNum){
+            console.log(stringNum);
+            $("#mainChoice"+stringNum+"Text").text(currentQuestion[questionIndex]["choice"+stringNum].text);
+            $("#mainChoice"+stringNum).addClass("correct");
+            $("#mainChoice"+stringNum+"Point").removeClass("d-none");
+            $("#correctSound")[0].play();
+            $("#consoleChoice"+stringNum+"Button").prop("disabled",true);
+        };
+        var givePoint = function(point,team){
+            var sumPoint = $("#team"+team+"Point").text();
+            sumPoint = parseInt(sumPoint);
+            sumPoint += parseInt(point);
+            $("#team"+team+"Point").text(sumPoint);
+        };
+        var wrongAnswer = function(team){
+            $("#wrongSound")[0].play();
+            var wrongTimes = parseInt($("#wrong"+team).text());
+            $("#wrong"+team).text(++wrongTimes);
+        };
+        $("#consoleGivePointToTeam").click(function(){
+            toggleTeam();
+        });
+        $("#consoleChoice1Button").click(function(){
+            revealAnswer("1");
+            givePoint(currentQuestion[questionIndex]["choice1"].point,givePointToTeam);
+        });
+        $("#consoleChoice2Button").click(function(){
+            revealAnswer("2");
+            givePoint(currentQuestion[questionIndex]["choice2"].point,givePointToTeam);
+        }); 
+        $("#consoleChoice3Button").click(function(){
+            revealAnswer("3");
+            givePoint(currentQuestion[questionIndex]["choice3"].point,givePointToTeam);
+        }); 
+        $("#consoleChoice4Button").click(function(){
+            revealAnswer("4");
+            givePoint(currentQuestion[questionIndex]["choice4"].point,givePointToTeam);
+        }); 
+        $("#consoleChoice5Button").click(function(){
+            revealAnswer("5");
+            givePoint(currentQuestion[questionIndex]["choice5"].point,givePointToTeam);
+        }); 
+        $("#consoleChoice6Button").click(function(){
+            revealAnswer("6");
+            givePoint(currentQuestion[questionIndex]["choice6"].point,givePointToTeam);
+        }); 
+        $("#consoleChoice7Button").click(function(){
+            revealAnswer("7");
+            givePoint(currentQuestion[questionIndex]["choice7"].point,givePointToTeam);
+        }); 
+        $("#consoleChoice8Button").click(function(){
+            revealAnswer("8");
+            givePoint(currentQuestion[questionIndex]["choice8"].point,givePointToTeam);
+        });    
+        //====End Reveal Answer===//
+        //==== Wrong Answer ====//
+        $("#wrongAnswerButton").click(function(){
+            wrongAnswer(givePointToTeam);
+        });
+        //====Next Question===//
+        $('#questionNumber').change(function() {
+            var val = $("#questionNumber option:selected").text();
+            $("#chosenQuestion").val(val);
+        });
+        $('#selectQuestionButton').click(function() {
+            var val = $("#questionNumber").prop('selectedIndex');
+            questionNum = ++val;
+            initial(questionNum);
+        });
+        //====End Next Question===//
+    });
+
+    //press next question
+</script>
+</body>
+</html>
